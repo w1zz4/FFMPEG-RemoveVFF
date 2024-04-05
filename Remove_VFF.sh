@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#Usage /mnt/Share/Medias/ListeMedias/Remove_VFF.sh Full movie Path escaped
+#Usage /mnt/Share/Medias/ListeMedias/Remove_VFF.sh "Full movie Path"
 
 dirpath="$(dirname "$1")";
 filename="$(basename  "$1")";
@@ -14,4 +14,3 @@ else
   mv "$dirpath/TMP_${filename}" "$1";
   chown -R w1zz4:w1zz4 "$dirpath";
   ffmpeg -i "$dirpath/$filename" 2>&1 | grep -A2 Audio;
-fi
